@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
-import vwBrazilianGarage from "../../assets/images/vw-brazilian-garage.jpg";
-import vwBrazilianGarageLogo from "../../assets/images/vw-brazilian-garage-high-resolution-logo-transparent.png";
+import vwBrazilianGarage from "../../assets/images/vbg-col-removebg-preview.png";
+import vwBrazilianGarageLogo from "../../assets/images/vbg-logo.png";
 import { FiMenu, FiChevronRight } from "react-icons/fi";
-import { IoAdd, IoRemoveOutline } from "react-icons/io5";
-import { BsBoxes } from "react-icons/bs";
-import { FaEdit, FaMoneyBill, FaInstagram } from "react-icons/fa";
+import { FaMoneyBill, FaInstagram } from "react-icons/fa";
 import { FaCarRear, FaCarBattery } from "react-icons/fa6";
 import ItemList from "./ItemList";
 
 const SideBar = ({ isOpen, toggleSidebar }) => {
 	return (
 		<aside
-			className={`absolute top-0 left-0 h-full transition-all duration-300 bg-white text-gray-900 flex flex-col shadow-md space-y-5 ${
+			className={`absolute top-0 left-0 h-full transition-all duration-300 bg-white text-gray-900 flex flex-col shadow-md space-y-5 items-center ${
 				isOpen ? "w-64" : "w-16"
 			}`}
 		>
@@ -63,7 +61,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
 			</ul>
 			<a
 				href="https://www.instagram.com/vwbraziliangarage/"
-				className="flex justify-center w-full pb-3"
+				className="w-fit rounded-xl  hover:text-yellow-400 pb-5 transition duration-300"
 				target="_blank"
 			>
 				<FaInstagram className="size-8" />

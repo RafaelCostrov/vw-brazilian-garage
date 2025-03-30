@@ -1,11 +1,12 @@
 function Container({ children, ...props }) {
 	return (
 		<div
-			className={`col-span-3 row-span-3 bg-white shadow-lg rounded-lg scale-95 hover:scale-100 transition-transform duration-300 origin-center
-				 p-3 flex flex-col items-center ${props.className}`}
+			className={`col-span-3 bg-white shadow-md rounded-lg will-change-transform hover:scale-102 translate-z-0
+				 transition duration-300 origin-center
+				 p-3 flex flex-col items-center h-full  ${props.className}`}
 		>
-			<h1 className="text-lg font-bold pb-1">{children}</h1>
-			{props.img ? (
+			{children}
+			{props.img && (
 				<div className="w-full flex-1 overflow-hidden">
 					<img
 						className="rounded-lg w-full h-full object-cover"
@@ -13,8 +14,6 @@ function Container({ children, ...props }) {
 						alt={children}
 					/>
 				</div>
-			) : (
-				<div className="w-full h-full flex-1"></div>
 			)}
 		</div>
 	);

@@ -7,6 +7,7 @@ import Carros from "./pages/Carros";
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isFiltered, setIsFiltered] = useState(false);
 	return (
 		<Router>
 			<div className="bg-gray-200 font-poppins flex h-screen overflow-hidden">
@@ -18,7 +19,15 @@ function App() {
 				>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/carros" element={<Carros />} />
+						<Route
+							path="/carros"
+							element={
+								<Carros
+									isFiltered={isFiltered}
+									onClickFilter={() => setIsFiltered(!isFiltered)}
+								/>
+							}
+						/>
 						<Route path="/pecas" element={<RemovePage />} />
 						<Route path="/valores" element={<RemovePage />} />
 					</Routes>

@@ -5,7 +5,7 @@ function ItemList({ isOpen, ...props }) {
 		<li className="w-full ">
 			<Link
 				to={props.link}
-				className="w-full px-4 py-2 flex hover:bg-gray-900  hover:text-white "
+				className="w-full px-4 py-2 flex hover:bg-green-700  hover:text-yellow-400 "
 			>
 				<div
 					className={`
