@@ -10,7 +10,7 @@ function App() {
 	const [isFiltered, setIsFiltered] = useState(false);
 	return (
 		<Router>
-			<div className="bg-gray-200 font-poppins flex h-screen overflow-hidden">
+			<div className="bg-green-300 font-poppins flex h-screen overflow-hidden">
 				<SideBar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
 				<main
 					className={`flex-1 overflow-auto transition-all duration-300 ${

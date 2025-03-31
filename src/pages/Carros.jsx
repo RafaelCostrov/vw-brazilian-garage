@@ -4,7 +4,8 @@ import Titulo from "../components/common/Titulo";
 import { motion } from "framer-motion";
 import { FaFilter } from "react-icons/fa";
 import { FaFilterCircleXmark } from "react-icons/fa6";
-import { IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp, IoAddCircle } from "react-icons/io5";
+import Button from "../components/common/Button";
 
 function Carros({ isFiltered, onClickFilter }) {
 	return (
@@ -14,12 +15,15 @@ function Carros({ isFiltered, onClickFilter }) {
 					<h1 className=" text-2xl font-bold text-gray-900 self-center">
 						Carros
 					</h1>
-					<button
-						className="hover:scale-130 transition duration-300 hover:text-yellow-300"
-						onClick={onClickFilter}
-					>
-						{isFiltered ? <FaFilterCircleXmark /> : <FaFilter />}
-					</button>
+					<div className="flex justify-between gap-4">
+						<IoAddCircle className="size-7 hover:scale-130 transition duration-300 hover:text-yellow-300"></IoAddCircle>
+						<button
+							className="hover:scale-130 transition duration-300 hover:text-yellow-300"
+							onClick={onClickFilter}
+						>
+							{isFiltered ? <FaFilterCircleXmark /> : <FaFilter />}
+						</button>
+					</div>
 				</div>
 				{isFiltered && (
 					<motion.form
@@ -35,7 +39,6 @@ function Carros({ isFiltered, onClickFilter }) {
 								: "opacity-0 scale-80"
 						}`}
 					>
-						<Titulo className="px-4 ">Filtros</Titulo>
 						<div className="flex justify-around">
 							<div className="flex flex-col">
 								<label className="font-medium text-gray-700">
@@ -43,7 +46,7 @@ function Carros({ isFiltered, onClickFilter }) {
 								</label>
 								<input
 									type="text"
-									className="bg-slate-100 rounded-sm shadow-md border border-gray-300 focus:outline-2 outline-offset-2 outline-blue-300"
+									className="bg-slate-100 rounded-sm shadow-md border border-gray-300 focus:outline-2 outline-offset-2 outline-yellow-300"
 								/>
 							</div>
 							<div className="flex flex-col">
@@ -51,12 +54,12 @@ function Carros({ isFiltered, onClickFilter }) {
 								<div className="flex gap-2">
 									<input
 										type="number"
-										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-blue-300 "
+										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-yellow-300 "
 										placeholder="Min"
 									/>
 									<input
 										type="number"
-										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-blue-300"
+										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-yellow-300"
 										placeholder="Max"
 									/>
 								</div>
@@ -66,12 +69,12 @@ function Carros({ isFiltered, onClickFilter }) {
 								<div className="flex gap-2">
 									<input
 										type="number"
-										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-blue-300"
+										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-yellow-300"
 										placeholder="Min"
 									/>
 									<input
 										type="number"
-										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-blue-300"
+										className="bg-slate-100 rounded-sm shadow-md border border-gray-300 w-20 focus:outline-2 outline-offset-2 outline-yellow-300"
 										placeholder="Max"
 									/>
 								</div>
@@ -90,13 +93,10 @@ function Carros({ isFiltered, onClickFilter }) {
 									<input type="checkbox" className="size-4" />
 								</div>
 							</div>
-							<button
-								type="submit"
-								className="bg-amber-300 self-center flex items-center gap-2 rounded-lg shadow-md p-2 px-4 hover:bg-green-600 hover:text-yellow-300 transition duration-300 active:outline-2 outline-offset-2 outline-blue-500 hover:scale-105 "
-							>
+							<Button type="submit">
 								<IoSearchSharp></IoSearchSharp>
 								<p>Filtrar</p>
-							</button>
+							</Button>
 						</div>
 					</motion.form>
 				)}

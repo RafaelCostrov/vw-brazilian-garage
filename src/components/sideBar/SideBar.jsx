@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 const SideBar = ({ isOpen, toggleSidebar }) => {
 	return (
 		<aside
-			className={`absolute top-0 left-0 h-full transition-all duration-300 bg-white text-gray-900 flex flex-col shadow-md space-y-5 items-center ${
+			className={`absolute top-0 left-0 h-full transition-all duration-300 bg-white rounded-r-md text-gray-900 flex flex-col shadow-md space-y-5 items-center ${
 				isOpen ? "w-64" : "w-16"
 			}`}
 		>
@@ -36,7 +36,9 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
 				<img
 					src={vwBrazilianGarage}
 					alt="logo da VW Brazilian Garage"
-					className={`transition-all duration-300 ${isOpen ? "w-28" : "w-16"}`}
+					className={`transition-all duration-300 ${
+						isOpen ? "w-28 pt-6" : "w-16"
+					}`}
 				/>
 				<img
 					src={vwBrazilianGarageLogo}

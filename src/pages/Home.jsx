@@ -37,7 +37,10 @@ function Home() {
 					</Container>
 					<Container className="row-span-1 justify-between">
 						<Titulo className="pb-0">Valor gasto no Mês</Titulo>
-						<p className="text-7xl pb-3">R$ 54,00</p>
+						<p>
+							<span className="text-2xl pb-3">R$ </span>
+							<span className="text-7xl pb-3">54,00</span>
+						</p>
 					</Container>
 					<Container className="row-span-1 justify-between">
 						<Titulo className="pb-0">Diferença com o mês passado</Titulo>
