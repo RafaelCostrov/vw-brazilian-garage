@@ -4,13 +4,15 @@ import SideBar from "./components/sideBar/SideBar";
 import Home from "./pages/Home";
 import RemovePage from "./pages/RemovePage";
 import Carros from "./pages/Carros";
+import Modal from "./components/common/Modal";
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isFiltered, setIsFiltered] = useState(false);
 	return (
 		<Router>
-			<div className="bg-green-300 font-poppins flex h-screen overflow-hidden">
+			<div className="bg-bandeira-azul-400 font-poppins flex h-screen overflow-hidden">
 				<SideBar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
 				<main
 					className={`flex-1 overflow-auto transition-all duration-300 ${
@@ -25,12 +27,17 @@ function App() {
 								<Carros
 									isFiltered={isFiltered}
 									onClickFilter={() => setIsFiltered(!isFiltered)}
+									onClickModal={() => setIsModalOpen(true)}
 								/>
 							}
 						/>
 						<Route path="/pecas" element={<RemovePage />} />
 						<Route path="/valores" element={<RemovePage />} />
 					</Routes>
+					<Modal
+						isModalOpen={isModalOpen}
+						onClose={() => setIsModalOpen(false)}
+					/>
 				</main>
 			</div>
 		</Router>

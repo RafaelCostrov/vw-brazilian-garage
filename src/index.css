@@ -3,6 +3,28 @@
 
 @theme {
 	--font-poppins: "Poppins", sans-serif;
+	--color-bandeira-verde-50: #edfff4;
+	--color-bandeira-verde-100: #d6ffe7;
+	--color-bandeira-verde-200: #afffd1;
+	--color-bandeira-verde-300: #71ffae;
+	--color-bandeira-verde-400: #2dfb84;
+	--color-bandeira-verde-500: #02e563;
+	--color-bandeira-verde-600: #00bf4e;
+	--color-bandeira-verde-700: #009440;
+	--color-bandeira-verde-800: #067537;
+	--color-bandeira-verde-900: #085f2f;
+	--color-bandeira-verde-950: #003618;
+	--color-bandeira-azul-50: #edf0ff;
+	--color-bandeira-azul-100: #dee4ff;
+	--color-bandeira-azul-200: #c3ccff;
+	--color-bandeira-azul-300: #9fa9ff;
+	--color-bandeira-azul-400: #787bff;
+	--color-bandeira-azul-500: #6058fc;
+	--color-bandeira-azul-600: #523af1;
+	--color-bandeira-azul-700: #462dd5;
+	--color-bandeira-azul-800: #3927ac;
+	--color-bandeira-azul-900: #302681;
+	--color-bandeira-azul-950: #1f174f;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
