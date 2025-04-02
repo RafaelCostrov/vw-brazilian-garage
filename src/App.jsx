@@ -4,11 +4,12 @@ import SideBar from "./components/sideBar/SideBar";
 import Home from "./pages/Home";
 import RemovePage from "./pages/RemovePage";
 import Carros from "./pages/Carros";
-import Modal from "./components/common/Modal";
+import Pecas from "./pages/Pecas";
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isFiltered, setIsFiltered] = useState(false);
+	const [modalAtivo, setModalAtivo] = useState(null);
 
 	return (
 		<Router>
@@ -26,10 +27,24 @@ function App() {
 							<Carros
 								isFiltered={isFiltered}
 								onClickFilter={() => setIsFiltered(!isFiltered)}
+								modalAtivo={modalAtivo}
+								onClickModal={(e) => setModalAtivo(e)}
+								onCloseModal={() => setModalAtivo(null)}
 							/>
 						}
 					/>
-					<Route path="/pecas" element={<RemovePage />} />
+					<Route
+						path="/pecas"
+						element={
+							<Pecas
+								isFiltered={isFiltered}
+								onClickFilter={() => setIsFiltered(!isFiltered)}
+								modalAtivo={modalAtivo}
+								onClickModal={(e) => setModalAtivo(e)}
+								onCloseModal={() => setModalAtivo(null)}
+							/>
+						}
+					/>
 					<Route path="/valores" element={<RemovePage />} />
 				</Routes>
 			</main>

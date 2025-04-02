@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 function Icon({ onClick, ...props }) {
 	const [sobreMouse, setSobreMouse] = useState(false);
 	const [iconeVisivel, setIconeVisivel] = useState(true);
-	console.log(onClick);
 	return (
 		<button>
 			<div
-				className={`flex hover:scale-110 transition duration-300 hover:text-bandeira-azul-700 items-center cursor-pointer `}
+				className={
+					"flex hover:scale-110 transition duration-300 hover:text-bandeira-azul-700 items-center cursor-pointer "
+				}
 				onMouseEnter={() => setSobreMouse(true)}
 				onMouseLeave={() => setSobreMouse(false)}
 				onClick={onClick}
@@ -40,7 +41,7 @@ function Icon({ onClick, ...props }) {
 									exit={{ opacity: 0, width: 0 }}
 									transition={{
 										duration: 0.3,
-										ease: "easeOut",
+										ease: "easeInOut",
 									}}
 								>
 									{" "}

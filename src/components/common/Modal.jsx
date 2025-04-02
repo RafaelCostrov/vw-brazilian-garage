@@ -8,10 +8,10 @@ import InputCheckbox from "./InputCheckbox";
 import ButtonVermelho from "./ButtonVermelho";
 
 const sizes = {
-	small: "w-1/3",
-	medium: "w-1/2",
-	large: "w-3/4",
-	extraLarge: "w-120",
+	small: "w-3/10",
+	medium: "w-4/10",
+	large: "w-1/2",
+	extraLarge: "w-6/10",
 };
 
 function Modal({ modalAtivo, onClose, title, size, children }) {
@@ -50,28 +50,15 @@ function Modal({ modalAtivo, onClose, title, size, children }) {
 						ref={modalRef}
 					>
 						<button
-							className="absolute top-2 right-2 m-1 opacity-50 hover:scale-130 cursor-pointer transition duration-300 hover:text-red-700 hover:opacity-100"
+							className="absolute top-0 right-0 m-1 opacity-50 hover:scale-130 cursor-pointer transition duration-300 hover:text-red-700 hover:opacity-100"
 							onClick={onClose}
 						>
 							<IoIosClose size={24} />
 						</button>
-						<h2 className="text-xl font-bold pb-4 border-b border-gray-200 mb-4">
+						<h2 className="text-xl font-bold pb-4 pt-1 border-b border-gray-200 mb-4">
 							{title}
 						</h2>
-						<div className="flex flex-wrap justify-start gap-5 pb-5">
-							{React.Children.toArray(children).filter(
-								(c) =>
-									c.type !== ButtonAzul &&
-									c.type !== ButtonVermelho &&
-									c.type !== `div`
-							)}
-						</div>
-						{React.Children.toArray(children).filter(
-							(c) =>
-								c.type === ButtonAzul ||
-								c.type === ButtonVermelho ||
-								c.type === `div`
-						)}
+						{children}
 					</motion.div>
 				</motion.div>
 			)}

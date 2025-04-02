@@ -3,7 +3,7 @@ function Container({ children, ...props }) {
 		<div
 			className={`col-span-3 bg-white shadow-md rounded-lg will-change-transform hover:scale-102 translate-z-0
 				 transition duration-300 origin-center
-				 p-3 flex flex-col items-center h-full  ${props.className}`}
+				 p-3 flex flex-col items-center h-full max-h-80  ${props.className}`}
 			onClick={props.onClick}
 		>
 			{children}

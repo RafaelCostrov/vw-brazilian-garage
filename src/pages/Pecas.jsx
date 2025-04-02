@@ -1,4 +1,4 @@
-import passatAmarelo from "../assets/images/passat-amarelo.jpg";
+import rodaPorsche from "../assets/images/porsche-914.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "../components/home/Container";
 import Titulo from "../components/common/Titulo";
@@ -11,7 +11,7 @@ import ButtonVermelho from "../components/common/ButtonVermelho";
 import MenuSuperior from "../components/common/MenuSuperior";
 import MenuFiltro from "../components/common/MenuFiltro";
 
-function Carros({
+function Pecas({
 	isFiltered,
 	onClickFilter,
 	modalAtivo,
@@ -26,16 +26,12 @@ function Carros({
 						isFiltered={isFiltered}
 						onClickFilter={onClickFilter}
 						onClickModal={onClickModal}
-						title="Carros"
+						title="Peças"
 					></MenuSuperior>
 					<MenuFiltro isFiltered={isFiltered} onClickFilter={onClickFilter}>
-						<InputUnico nomeInput={"Marca/Modelo"}></InputUnico>
-						<InputDuplo nomeInput={"Ano"}></InputDuplo>
+						<InputUnico nomeInput={"Nome"}></InputUnico>
+						<InputDuplo nomeInput={"Quantidade"}></InputDuplo>
 						<InputDuplo nomeInput={"Valor"}></InputDuplo>
-						<div className="flex flex-col items-center gap-2">
-							<InputCheckbox nomeInput={"Apenas único dono"}></InputCheckbox>
-							<InputCheckbox nomeInput={"Apenas com sociedade"}></InputCheckbox>
-						</div>
 					</MenuFiltro>
 				</div>
 				<AnimatePresence>
@@ -45,68 +41,79 @@ function Carros({
 						className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-9 lg:grid-cols-12 auto-rows-min gap-4 p-4 overflow-hidden w-full "
 					>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 						<Container
-							img={passatAmarelo}
+							img={rodaPorsche}
 							onClick={() => onClickModal("detalhes")}
 						>
-							<Titulo>Passat Surf</Titulo>
+							<Titulo>Roda Porsche 914</Titulo>
 						</Container>
 					</motion.div>
 				</AnimatePresence>
 			</section>
+
 			{modalAtivo === "adicionar" && (
 				<Modal
 					onClose={() => onCloseModal()}
 					size={"small"}
 					title={"Coloque as informações do carro que deseja adicionar:"}
 				>
-					<InputUnico nomeInput={"Marca"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Modelo"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Ano"} type={"number"} className="w-5/12" />
-					<InputUnico nomeInput={"Cor"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Valor"} type={"number"} className="w-10/12" />
-					<InputCheckbox nomeInput={"É sociedade?"} />
+					<div className="grid grid-cols-2 auto-rows-auto gap-8 pb-8">
+						<InputUnico nomeInput={"Marca"} type={"text"} className="w-10/12" />
+						<InputUnico
+							nomeInput={"Modelo"}
+							type={"text"}
+							className="w-10/12"
+						/>
+						<InputUnico nomeInput={"Ano"} type={"number"} className="w-5/12" />
+						<InputUnico nomeInput={"Cor"} type={"text"} className="w-10/12" />
+						<InputUnico
+							nomeInput={"Valor"}
+							type={"number"}
+							className="w-10/12"
+						/>
+						<InputCheckbox nomeInput={"É sociedade?"} />
+					</div>
 					<ButtonAzul className="self-center justify-center">
 						Adicionar
 					</ButtonAzul>
@@ -115,37 +122,33 @@ function Carros({
 			{modalAtivo === "detalhes" && (
 				<Modal
 					onClose={() => onCloseModal()}
-					title="Detalhes do Carro"
+					title="Detalhes da Peça"
 					size={"small"}
 				>
-					<p>
-						<span className="font-bold">Marca:</span> Volkswagen
-					</p>
-					<p>
-						<span className="font-bold">Modelo:</span> Passat Surf
-					</p>
-					<p>
-						<span className="font-bold">Placa:</span> CRP-0380
-					</p>
-					<p>
-						<span className="font-bold">Ano:</span> 1981
-					</p>
-					<p>
-						<span className="font-bold">Cor:</span> Amarelo
-					</p>
-					<p>
-						<span className="font-bold">Valor:</span> R$ 40.000,00
-					</p>
-					<p>
-						<span className="font-bold">Propriedade:</span> Único dono
-					</p>
-					<div className="flex gap-4 mb-5">
-						<span className="font-bold">Fotografia:</span>
-						<img
-							src={passatAmarelo}
-							alt="Passat Surf Amarelo"
-							className="rounded-lg size-6/12"
-						/>
+					<div className="flex gap-5">
+						<div className="flex flex-col max-w-fit justify-between p-2">
+							<p>
+								<span className="font-bold">Nome:</span> Roda Porsche 914
+							</p>
+							<p>
+								<span className="font-bold">Descrição:</span> Roda 15"/6" 4
+								furos
+							</p>
+							<p>
+								<span className="font-bold">Quantidade:</span> 4
+							</p>
+							<p>
+								<span className="font-bold">Valor:</span> R$ 1.530,00
+							</p>
+						</div>
+						<div className="gap-4 mb-5 w-full flex-1 overflow-hidden">
+							<span className="font-bold">Fotografia:</span>
+							<img
+								src={rodaPorsche}
+								alt="Roda Porsche 914"
+								className="rounded-lg w-fit h-fit min-h-15 object-cover"
+							/>
+						</div>
 					</div>
 					<div className="flex justify-center gap-4">
 						<ButtonAzul>Editar</ButtonAzul>
@@ -157,4 +160,4 @@ function Carros({
 	);
 }
 
-export default Carros;
+export default Pecas;
