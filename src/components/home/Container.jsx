@@ -4,6 +4,7 @@ function Container({ children, ...props }) {
 			className={`col-span-3 bg-white shadow-md rounded-lg will-change-transform hover:scale-102 translate-z-0
 				 transition duration-300 origin-center
 				 p-3 flex flex-col items-center h-full  ${props.className}`}
+			onClick={props.onClick}
 		>
 			{children}
 			{props.img && (

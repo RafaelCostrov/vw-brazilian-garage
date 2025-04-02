@@ -8,38 +8,31 @@ import Modal from "./components/common/Modal";
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false);
-	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isFiltered, setIsFiltered] = useState(false);
+
 	return (
 		<Router>
-			<div className="bg-bandeira-azul-400 font-poppins flex h-screen overflow-hidden">
-				<SideBar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
-				<main
-					className={`flex-1 overflow-auto transition-all duration-300 ${
-						isOpen ? "ml-64" : "ml-16"
-					}`}
-				>
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route
-							path="/carros"
-							element={
-								<Carros
-									isFiltered={isFiltered}
-									onClickFilter={() => setIsFiltered(!isFiltered)}
-									onClickModal={() => setIsModalOpen(true)}
-								/>
-							}
-						/>
-						<Route path="/pecas" element={<RemovePage />} />
-						<Route path="/valores" element={<RemovePage />} />
-					</Routes>
-					<Modal
-						isModalOpen={isModalOpen}
-						onClose={() => setIsModalOpen(false)}
+			<SideBar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
+			<main
+				className={`flex-1 overflow-auto transition-all duration-300 ${
+					isOpen ? "ml-64" : "ml-16"
+				}`}
+			>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route
+						path="/carros"
+						element={
+							<Carros
+								isFiltered={isFiltered}
+								onClickFilter={() => setIsFiltered(!isFiltered)}
+							/>
+						}
 					/>
-				</main>
-			</div>
+					<Route path="/pecas" element={<RemovePage />} />
+					<Route path="/valores" element={<RemovePage />} />
+				</Routes>
+			</main>
 		</Router>
 	);
 }

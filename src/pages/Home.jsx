@@ -11,12 +11,12 @@ function Home() {
 			<a
 				href="https://www.instagram.com/vwbraziliangarage/"
 				target="_blank"
-				className="flex justify-center"
+				className="flex justify-center w-3/11"
 			>
 				<img
 					src={vbgLogo}
 					alt="Logo da VBG"
-					className="w-3/12 hover:scale-103 transition duration-300"
+					className="w-fit hover:scale-103 transition duration-300"
 				/>
 			</a>
 			<div className="flex-1 overflow-y-auto">

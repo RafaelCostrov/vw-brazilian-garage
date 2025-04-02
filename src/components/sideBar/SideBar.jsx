@@ -63,7 +63,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
 			</ul>
 			<a
 				href="https://www.instagram.com/vwbraziliangarage/"
-				className="w-fit rounded-xl  hover:text-yellow-400 pb-5 transition duration-300"
+				className="w-fit rounded-xl  hover:text-bandeira-azul-700 pb-5 hover:scale-110 transition duration-300"
 				target="_blank"
 			>
 				<FaInstagram className="size-8" />
