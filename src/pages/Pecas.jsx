@@ -1,6 +1,6 @@
 import rodaPorsche from "../assets/images/porsche-914.jpg";
 import { motion, AnimatePresence } from "framer-motion";
-import Container from "../components/home/Container";
+import Card from "../components/common/Card";
 import Titulo from "../components/common/Titulo";
 import InputUnico from "../components/common/InputUnico";
 import InputDuplo from "../components/common/InputDuplo";
@@ -27,6 +27,12 @@ function Pecas({
 						onClickFilter={onClickFilter}
 						onClickModal={onClickModal}
 						title="Peças"
+						buttons={
+							<>
+								<ButtonAzul>Editar</ButtonAzul>
+								<ButtonVermelho>Apagar</ButtonVermelho>
+							</>
+						}
 					></MenuSuperior>
 					<MenuFiltro isFiltered={isFiltered} onClickFilter={onClickFilter}>
 						<InputUnico nomeInput={"Nome"}></InputUnico>
@@ -40,54 +46,30 @@ function Pecas({
 						transition={{ duration: 0.4, ease: "easeInOut" }}
 						className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-9 lg:grid-cols-12 auto-rows-min gap-4 p-4 overflow-hidden w-full "
 					>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
-						<Container
-							img={rodaPorsche}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={rodaPorsche} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Roda Porsche 914</Titulo>
-						</Container>
+						</Card>
 					</motion.div>
 				</AnimatePresence>
 			</section>
@@ -97,8 +79,13 @@ function Pecas({
 					onClose={() => onCloseModal()}
 					size={"small"}
 					title={"Coloque as informações do carro que deseja adicionar:"}
+					buttons={
+						<ButtonAzul className="self-center justify-center">
+							Adicionar
+						</ButtonAzul>
+					}
 				>
-					<div className="grid grid-cols-2 auto-rows-auto gap-8 pb-8">
+					<div className="grid grid-cols-2 auto-rows-auto gap-8 pb-8 pl-6">
 						<InputUnico nomeInput={"Marca"} type={"text"} className="w-10/12" />
 						<InputUnico
 							nomeInput={"Modelo"}
@@ -114,45 +101,35 @@ function Pecas({
 						/>
 						<InputCheckbox nomeInput={"É sociedade?"} />
 					</div>
-					<ButtonAzul className="self-center justify-center">
-						Adicionar
-					</ButtonAzul>
 				</Modal>
 			)}
 			{modalAtivo === "detalhes" && (
 				<Modal
 					onClose={() => onCloseModal()}
 					title="Detalhes da Peça"
-					size={"small"}
+					size={"medium"}
+					img={rodaPorsche}
+					nome={"Roda Porsche 914"}
+					buttons={
+						<>
+							<ButtonAzul>Editar</ButtonAzul>
+							<ButtonVermelho>Apagar</ButtonVermelho>
+						</>
+					}
 				>
-					<div className="flex gap-5">
-						<div className="flex flex-col max-w-fit justify-between p-2">
-							<p>
-								<span className="font-bold">Nome:</span> Roda Porsche 914
-							</p>
-							<p>
-								<span className="font-bold">Descrição:</span> Roda 15"/6" 4
-								furos
-							</p>
-							<p>
-								<span className="font-bold">Quantidade:</span> 4
-							</p>
-							<p>
-								<span className="font-bold">Valor:</span> R$ 1.530,00
-							</p>
-						</div>
-						<div className="gap-4 mb-5 w-full flex-1 overflow-hidden">
-							<span className="font-bold">Fotografia:</span>
-							<img
-								src={rodaPorsche}
-								alt="Roda Porsche 914"
-								className="rounded-lg w-fit h-fit min-h-15 object-cover"
-							/>
-						</div>
-					</div>
-					<div className="flex justify-center gap-4">
-						<ButtonAzul>Editar</ButtonAzul>
-						<ButtonVermelho>Apagar</ButtonVermelho>
+					<div className="flex flex-col max-w-fit justify-start space-y-20 px-5">
+						<p>
+							<span className="font-bold">Nome:</span> Roda Porsche 914
+						</p>
+						<p>
+							<span className="font-bold">Descrição:</span> Roda 15"/6" 4 furos
+						</p>
+						<p>
+							<span className="font-bold">Quantidade:</span> 4
+						</p>
+						<p>
+							<span className="font-bold">Valor:</span> R$ 1.530,00
+						</p>
 					</div>
 				</Modal>
 			)}

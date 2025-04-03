@@ -1,16 +1,16 @@
-function Container({ children, ...props }) {
+function Card({ children, ...props }) {
 	return (
 		<div
 			className={`col-span-3 bg-white shadow-md rounded-lg will-change-transform hover:scale-102 translate-z-0
 				 transition duration-300 origin-center
-				 p-3 flex flex-col items-center h-full ${props.className}`}
+				 p-3 flex flex-col items-center h-100% ${props.className}`}
 			onClick={props.onClick}
 		>
 			{children}
 			{props.img && (
 				<div className="w-full flex-1 overflow-hidden">
 					<img
-						className="rounded-lg w-full h-full object-cover"
+						className="rounded-lg w-full h-40 object-cover"
 						src={props.img}
 						alt={children}
 					/>
@@ -20,4 +20,4 @@ function Container({ children, ...props }) {
 	);
 }
 
-export default Container;
+export default Card;

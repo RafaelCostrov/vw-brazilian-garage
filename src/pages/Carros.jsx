@@ -1,6 +1,6 @@
 import passatAmarelo from "../assets/images/passat-amarelo.jpg";
 import { motion, AnimatePresence } from "framer-motion";
-import Container from "../components/home/Container";
+import Card from "../components/common/Card";
 import Titulo from "../components/common/Titulo";
 import InputUnico from "../components/common/InputUnico";
 import InputDuplo from "../components/common/InputDuplo";
@@ -44,54 +44,30 @@ function Carros({
 						transition={{ duration: 0.4, ease: "easeInOut" }}
 						className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-9 lg:grid-cols-12 auto-rows-min gap-4 p-4 overflow-hidden w-full "
 					>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
-						<Container
-							img={passatAmarelo}
-							onClick={() => onClickModal("detalhes")}
-						>
+						</Card>
+						<Card img={passatAmarelo} onClick={() => onClickModal("detalhes")}>
 							<Titulo>Passat Surf</Titulo>
-						</Container>
+						</Card>
 					</motion.div>
 				</AnimatePresence>
 			</section>
@@ -100,56 +76,66 @@ function Carros({
 					onClose={() => onCloseModal()}
 					size={"small"}
 					title={"Coloque as informações do carro que deseja adicionar:"}
+					buttons={
+						<ButtonAzul className="self-center justify-center">
+							Adicionar
+						</ButtonAzul>
+					}
 				>
-					<InputUnico nomeInput={"Marca"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Modelo"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Ano"} type={"number"} className="w-5/12" />
-					<InputUnico nomeInput={"Cor"} type={"text"} className="w-10/12" />
-					<InputUnico nomeInput={"Valor"} type={"number"} className="w-10/12" />
-					<InputCheckbox nomeInput={"É sociedade?"} />
-					<ButtonAzul className="self-center justify-center">
-						Adicionar
-					</ButtonAzul>
+					<div className="grid grid-cols-2 auto-rows-auto gap-8 pb-8 pl-6">
+						<InputUnico nomeInput={"Marca"} type={"text"} className="w-10/12" />
+						<InputUnico
+							nomeInput={"Modelo"}
+							type={"text"}
+							className="w-10/12"
+						/>
+						<InputUnico nomeInput={"Ano"} type={"number"} className="w-5/12" />
+						<InputUnico nomeInput={"Cor"} type={"text"} className="w-10/12" />
+						<InputUnico
+							nomeInput={"Valor"}
+							type={"number"}
+							className="w-10/12"
+						/>
+						<InputCheckbox nomeInput={"É sociedade?"} />
+					</div>
 				</Modal>
 			)}
 			{modalAtivo === "detalhes" && (
 				<Modal
 					onClose={() => onCloseModal()}
 					title="Detalhes do Carro"
-					size={"small"}
+					size={"large"}
+					img={passatAmarelo}
+					nome={"Passat Surf"}
+					buttons={
+						<>
+							<ButtonAzul>Editar</ButtonAzul>
+							<ButtonVermelho>Apagar</ButtonVermelho>
+						</>
+					}
 				>
-					<p>
-						<span className="font-bold">Marca:</span> Volkswagen
-					</p>
-					<p>
-						<span className="font-bold">Modelo:</span> Passat Surf
-					</p>
-					<p>
-						<span className="font-bold">Placa:</span> CRP-0380
-					</p>
-					<p>
-						<span className="font-bold">Ano:</span> 1981
-					</p>
-					<p>
-						<span className="font-bold">Cor:</span> Amarelo
-					</p>
-					<p>
-						<span className="font-bold">Valor:</span> R$ 40.000,00
-					</p>
-					<p>
-						<span className="font-bold">Propriedade:</span> Único dono
-					</p>
-					<div className="flex gap-4 mb-5">
-						<span className="font-bold">Fotografia:</span>
-						<img
-							src={passatAmarelo}
-							alt="Passat Surf Amarelo"
-							className="rounded-lg size-6/12"
-						/>
-					</div>
-					<div className="flex justify-center gap-4">
-						<ButtonAzul>Editar</ButtonAzul>
-						<ButtonVermelho>Apagar</ButtonVermelho>
+					<div className="flex flex-col max-w-fit justify-start space-y-10 px-5">
+						<p>
+							<span className="font-bold">Marca:</span> Volkswagen
+						</p>
+						<p>
+							<span className="font-bold">Modelo:</span> Passat Surf
+						</p>
+						<p>
+							<span className="font-bold">Placa:</span> CRP-0380
+						</p>
+						<p>
+							<span className="font-bold">Ano:</span> 1981
+						</p>
+						<p>
+							<span className="font-bold">Cor:</span> Amarelo
+						</p>
+						<p>
+							<span className="font-bold">Valor:</span> R$ 40.000,00
+						</p>
+						<p>
+							<span className="font-bold">Propriedade:</span> Único dono
+						</p>
 					</div>
 				</Modal>
 			)}
