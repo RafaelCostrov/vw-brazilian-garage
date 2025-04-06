@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Card({ children, ...props }) {
 	return (
 		<div
@@ -7,12 +9,14 @@ function Card({ children, ...props }) {
 			onClick={props.onClick}
 		>
 			{children}
+
 			{props.img && (
-				<div className="w-full flex-1 overflow-hidden">
+				<div className="w-full flex-1 overflow-hidden relative">
 					<img
-						className="rounded-lg w-full h-40 object-cover"
 						src={props.img}
 						alt={children}
+						className={`rounded-lg w-full h-40 object-cover transition-opacity duration-300 opacity-0"
+						`}
 					/>
 				</div>
 			)}

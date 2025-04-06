@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideBar from "./components/sideBar/SideBar";
 import Home from "./pages/Home";
@@ -10,6 +11,8 @@ function App() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isFiltered, setIsFiltered] = useState(false);
 	const [modalAtivo, setModalAtivo] = useState(null);
+	const notifyAcerto = () => toast.success("Adicionado com sucesso!");
+	const notifyErro = () => toast.error("Erro ao adicionar!");
 
 	return (
 		<Router>
@@ -28,8 +31,10 @@ function App() {
 								isFiltered={isFiltered}
 								onClickFilter={() => setIsFiltered(!isFiltered)}
 								modalAtivo={modalAtivo}
-								onClickModal={(e) => setModalAtivo(e)}
+								onClickModal={e => setModalAtivo(e)}
 								onCloseModal={() => setModalAtivo(null)}
+								notifyAcerto={notifyAcerto}
+								notifyErro={notifyErro}
 							/>
 						}
 					/>
@@ -40,13 +45,27 @@ function App() {
 								isFiltered={isFiltered}
 								onClickFilter={() => setIsFiltered(!isFiltered)}
 								modalAtivo={modalAtivo}
-								onClickModal={(e) => setModalAtivo(e)}
+								onClickModal={e => setModalAtivo(e)}
 								onCloseModal={() => setModalAtivo(null)}
 							/>
 						}
 					/>
 					<Route path="/valores" element={<RemovePage />} />
 				</Routes>
+				<Toaster
+					toastOptions={{
+						success: {
+							style: {
+								background: "#462dd5",
+								color: "white",
+							},
+							iconTheme: {
+								primary: "white",
+								secondary: "#462dd5",
+							},
+						},
+					}}
+				/>
 			</main>
 		</Router>
 	);

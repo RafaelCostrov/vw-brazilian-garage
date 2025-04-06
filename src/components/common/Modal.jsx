@@ -1,11 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosClose } from "react-icons/io";
-import ButtonAzul from "./ButtonAzul";
-import InputUnico from "./InputUnico";
-import InputDuplo from "./InputDuplo";
-import InputCheckbox from "./InputCheckbox";
-import ButtonVermelho from "./ButtonVermelho";
 
 const sizes = {
 	small: "w-3/10 h-1/2",
@@ -26,7 +21,7 @@ function Modal({
 }) {
 	const modalRef = useRef(null);
 	const [clickInside, setClickInside] = useState(false);
-	const handleMouseDown = (mouse) => {
+	const handleMouseDown = mouse => {
 		if (modalRef.current?.contains(mouse.target)) {
 			setClickInside(true);
 		} else {
@@ -52,7 +47,7 @@ function Modal({
 					onMouseUp={handleMouseUp}
 				>
 					<motion.div
-						className={`relative bg-white p-6 rounded-lg shadow-lg ${sizes[size]} flex flex-col justify-between`}
+						className={`relative bg-white rounded-lg shadow-lg ${sizes[size]} flex flex-col justify-between`}
 						initial={{ scale: 0.8, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						exit={{ scale: 0.8, opacity: 0 }}
@@ -64,10 +59,10 @@ function Modal({
 						>
 							<IoIosClose size={24} />
 						</button>
-						<h2 className="text-xl font-bold pb-4 pt-1 border-b border-gray-200 mb-10">
+						<h2 className="text-xl font-bold p-4 border-b border-gray-200 mb-10">
 							{title}
 						</h2>
-						<div className="flex h-full">
+						<div className="flex h-full px-6 gap-6">
 							{children}
 							{img && (
 								<div className="gap-4 w-full flex-1 overflow-hidden">
